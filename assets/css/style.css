@@ -80,4 +80,19 @@ main {
     box-shadow: -5px 5px 5px black;
     width: 20vw;
 }
+
+#form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#name {
+    width: 20vw;   
+}
+
+#submitBtn {
+    flex-basis: 51%;
+}
  /* MAIN STYLES END */

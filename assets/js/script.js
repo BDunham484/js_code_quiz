@@ -3,6 +3,7 @@ var quizContentEl = document.querySelector("#quiz-content");
 var buttonsEl = document.querySelector("#buttons");
 var timerEl = document.querySelector("#time-left");
 var responseEl = document.querySelector("#response");
+var formEl = document.querySelector("#form")
 //create variable to iterate through questions
 var questionCounter = 1;
 var timeLeft = 60;
@@ -453,6 +454,7 @@ var startTimer = function(timeLeft) {
         } else {
         stopTimer(timer);
         endQuiz();
+        highScore();
         }
     }, 1000);
 }
@@ -474,7 +476,6 @@ var stopTimer = function(timer) {
 
  //function cycle to next question and re-run questions() if there are any questions left.  If not, run endQuiz()
  var nextQuestion = function() {
-    //  debugger;
      firstButton.remove();
      secondButton.remove();
      thirdButton.remove();
@@ -491,15 +492,47 @@ var stopTimer = function(timer) {
 
 
 
-
+//funciton to end the quiz
 var endQuiz = function() {
     quizContentEl.textContent = "All Done!";
     listItemA.remove();
     listItemB.remove();
     listItemC.remove();
     listItemD.remove();
-    responseEl.textContent = "Your final score is " + points + ".";
     questionCounter = 11;
+}
+
+
+
+
+
+//function to display and save high score
+var highScore = function() {
+     //display final score
+     responseEl.textContent = "Your final score is " + points + ".";
+     //create and display input field for high score
+      var labelEl = document.createElement("label");
+      labelEl.setAttribute("for", "name");
+      labelEl.textContent = "Enter Initials: ";
+      formEl.appendChild(labelEl);
+  
+      var inputEl = document.createElement("input");
+      inputEl.setAttribute("type", "text");
+      inputEl.setAttribute("name", "name");
+      inputEl.id = "name";
+      formEl.appendChild(inputEl)
+      //create and display submit button for input field
+      var submitEl = document.createElement("button");
+      submitEl.setAttribute("type", "submit");
+      submitEl.className = "btns";
+      submitEl.id = "submitBtn";
+      submitEl.textContent = "Submit";
+      formEl.appendChild(submitEl);
+
+      //capture the input and save initials and high score to local storage
+      var inputInitials = document.querySelector("input[name='name']").value;
+      console.log(inputInitials);
+     
 }
 
 
