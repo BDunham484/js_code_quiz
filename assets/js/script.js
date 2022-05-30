@@ -46,7 +46,7 @@ var quizArr = [
         answerC: "None of the above"
     },
     {
-        question: "3. What is the best practive for naming Javascript variable",
+        question: "3. What is the best practice for naming Javascript variables?",
         correctAnswer: "thisOne",
         answerA: "NoThisOne",
         answerB: "Prettysurethisisit",
@@ -109,6 +109,7 @@ var quizArr = [
 
 //create the initial screen content to start the quiz
 //the heading
+responseEl.remove();
 var quizTitleEl = document.createElement("h2");
 quizTitleEl.className = "quiz-title";
 quizTitleEl.textContent = quizArr[0].heading;
@@ -514,6 +515,7 @@ var highScoreForm = function() {
      //create and display input field for high score
       var labelEl = document.createElement("label");
       labelEl.setAttribute("for", "name");
+      labelEl.id = "enter-initials";
       labelEl.textContent = "Enter Initials: ";
       formEl.appendChild(labelEl);
   

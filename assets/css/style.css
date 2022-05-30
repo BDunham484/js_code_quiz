@@ -7,13 +7,15 @@
  /* UNIVERSAL STYLES END */
 
  body {
-    background-color: rgb(73, 83, 83);
+    background-color: #f2e9e4;
+    font-family: Arial, Helvetica, sans-serif;
  }
 
  /* HEADER STYLES START */
  header {
-     background-color: antiquewhite;
+     background-color: #9a8c98;
      padding: 4vh;
+     color: #22223b;
  }
  header div {
      display: flex;
@@ -41,7 +43,7 @@ main {
 }
 
 #quiz {
-    background-color: antiquewhite;
+    background-color: #c9ada7;
     width: 65vw;
     height: 50vh;
     margin: auto;
@@ -49,19 +51,34 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #22223b;
+    border: 2px solid #4a4e69;
 }
 
 .quiz-title {
     font-size: 45px;
+    color: #22223b;
 }
 
 .description {
     width: 43vw;
     text-align: center;
     margin: 40px auto;
-    font-size: 20px;
+    font-size: 28px;
+    font-weight: 100;
     letter-spacing: 1.3px;
     
+    color: #22223b;
+}
+
+#response {
+    background-color: rgb(74, 78, 105, .2);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#name {
+    background-color: ;
 }
 
 #buttons {
@@ -71,13 +88,13 @@ main {
 
 
 .btns {
-    background-color: rgb(94, 92, 92);
+    background-color: #4a4e69;
     color: antiquewhite;
     padding: 10px 15px;
     margin: 10px 0;
     border: none;
     font-size: larger;
-    box-shadow: -5px 5px 5px black;
+    box-shadow: -5px 5px 5px #222222;
     width: 20vw;
 }
 
@@ -88,8 +105,15 @@ main {
     flex-wrap: wrap;
 }
 
+#enter-initials {
+    font-size:larger;
+}
+
 #name {
     width: 20vw;   
+    background-color: rgb(74, 78, 105, .5);
+    margin: 20px 5px;
+    padding: 5px;
 }
 
 #submitBtn {
