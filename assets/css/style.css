@@ -81,7 +81,7 @@ main {
     width: 20vw;
 }
 
-#form {
+#high-score-form {
     display: flex;
     align-items: center;
     justify-content: center;

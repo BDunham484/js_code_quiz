@@ -3,11 +3,12 @@ var quizContentEl = document.querySelector("#quiz-content");
 var buttonsEl = document.querySelector("#buttons");
 var timerEl = document.querySelector("#time-left");
 var responseEl = document.querySelector("#response");
-var formEl = document.querySelector("#form")
+var formEl = document.querySelector("#high-score-form")
 //create variable to iterate through questions
 var questionCounter = 1;
 var timeLeft = 60;
 var points = 0;
+
 //create global variables for all of the list items
 var listItemA = document.createElement("li");
 var listItemB = document.createElement("li");
@@ -323,7 +324,7 @@ var questions = function() {
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[2].question) {
             points++
-            responseEl.textContent = "Correct Answer!";
+            responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl)        
             console.log(points);
@@ -454,7 +455,7 @@ var startTimer = function(timeLeft) {
         } else {
         stopTimer(timer);
         endQuiz();
-        highScore();
+        highScoreForm();
         }
     }, 1000);
 }
@@ -506,8 +507,8 @@ var endQuiz = function() {
 
 
 
-//function to display and save high score
-var highScore = function() {
+//function to create high score submission form and to capture and save high score
+var highScoreForm = function() {
      //display final score
      responseEl.textContent = "Your final score is " + points + ".";
      //create and display input field for high score
@@ -530,9 +531,65 @@ var highScore = function() {
       formEl.appendChild(submitEl);
 
       //capture the input and save initials and high score to local storage
-      var inputInitials = document.querySelector("input[name='name']").value;
-      console.log(inputInitials);
-     
+      
+      formEl.addEventListener("submit", function(event) {
+        event.preventDefault();
+        //capture the input in an variable
+        var inputInitials = document.querySelector("input[name='name']").value;
+        //create high score array
+        var highScoreArr = [];
+        //create high score object 
+        var highScoreObj = {
+        initials: inputInitials,
+        score: points
+        };
+        //push object to array
+        highScoreArr.push(highScoreObj);
+        //save high score to local storage
+        localStorage.setItem("high-score", JSON.stringify(highScoreArr[0]));
+        //call the highscore function
+        highScore(highScoreArr);
+      });   
+}
+
+
+
+
+
+//create function to display high score page
+var highScore = function(highScoreArr) {
+    //clear and update previous content
+    firstButton.remove();
+    secondButton.remove();
+    thirdButton.remove();
+    fourthButton.remove();
+    quizContentEl.textContent = "High Score!!";
+    var name =  highScoreArr[0].initials.toUpperCase();
+    var score =  highScoreArr[0].score;
+    responseEl.textContent ="1. " + name + " - " + score;
+    formEl.remove();
+    //create go back and clear scores buttons
+    buttonsEl.appendChild(listItemA);
+    var goBackBtn = document.createElement("button");
+    goBackBtn.textContent = "Try Again";
+    goBackBtn.className = "btns";
+    listItemA.appendChild(goBackBtn);
+    
+
+    buttonsEl.appendChild(listItemB);
+    var clearScoreBtn = document.createElement("button");
+    clearScoreBtn.textContent = "Clear High Score";
+    clearScoreBtn.className = "btns";
+    listItemB.appendChild(clearScoreBtn);
+    //reload quiz on go back button click
+    goBackBtn.addEventListener("click", function() {
+        window.location.reload(true);
+    });
+
+    clearScoreBtn.addEventListener("click", function() {
+        localStorage.clear();
+        window.location.reload(true);
+    });
 }
 
 
