@@ -1,3 +1,4 @@
+//create variabels
 var quizEl = document.querySelector("#quiz");
 var quizContentEl = document.querySelector("#quiz-content");
 var buttonsEl = document.querySelector("#buttons");
@@ -501,66 +502,65 @@ var endQuiz = function() {
 
 //function to create high score submission form and to capture and save high score
 var highScoreForm = function() {
-     //display final score
-     responseEl.textContent = "Your final score is " + points + ".";
-     //create and display input field for high score
-      var labelEl = document.createElement("label");
-      labelEl.setAttribute("for", "name");
-      labelEl.id = "enter-initials";
-      labelEl.textContent = "Enter Initials: ";
-      formEl.appendChild(labelEl);
-  
-      var inputEl = document.createElement("input");
-      inputEl.setAttribute("type", "text");
-      inputEl.setAttribute("name", "name");
-      inputEl.id = "name";
-      formEl.appendChild(inputEl)
-      //create and display submit button for input field
-      var submitEl = document.createElement("button");
-      submitEl.setAttribute("type", "submit");
-      submitEl.className = "btns";
-      submitEl.id = "submitBtn";
-      submitEl.textContent = "Submit";
-      formEl.appendChild(submitEl);
+    //display final score
+    responseEl.textContent = "Your final score is " + points + ".";
+    //create and display input field for high score
+    var labelEl = document.createElement("label");
+    labelEl.setAttribute("for", "name");
+    labelEl.id = "enter-initials";
+    labelEl.textContent = "Enter Initials: ";
+    formEl.appendChild(labelEl);
 
-      //capture the input and save initials and high score to local storage
-      
-      formEl.addEventListener("submit", function(event) {
-        event.preventDefault();
-        //capture the input in an variable
-        var inputInitials = document.querySelector("input[name='name']").value;
-        //create high score array
-        var highScoreArr = [];
-        //create high score object 
-        var highScoreObj = {
-        initials: inputInitials,
-        score: points
-        };
-        //retrieve current high score and save to variables
+    var inputEl = document.createElement("input");
+    inputEl.setAttribute("type", "text");
+    inputEl.setAttribute("name", "name");
+    inputEl.id = "name";
+    formEl.appendChild(inputEl)
+    //create and display submit button for input field
+    var submitEl = document.createElement("button");
+    submitEl.setAttribute("type", "submit");
+    submitEl.className = "btns";
+    submitEl.id = "submitBtn";
+    submitEl.textContent = "Submit";
+    formEl.appendChild(submitEl);
+
+    //capture the input and save initials and high score to local storage
+    formEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+    //capture the input in an variable
+    var inputInitials = document.querySelector("input[name='name']").value;
+    //create high score array
+    var highScoreArr = [];
+    //create high score object 
+    var highScoreObj = {
+    initials: inputInitials,
+    score: points
+    };
+    //retrieve current high score and save to variables
+    var highScore = localStorage.getItem("high-score");
+    highScore = JSON.parse(highScore);
+    if (!highScore) {
+        initials = "";
+        highScore = 0;
+    } else {
+        initials = highScore.initials
+        highScore = highScore.score
+    }
+    //compare current score to high score and save to local storage if true
+    if (points > highScore) {
+        //push object to array
+        highScoreArr.push(highScoreObj);
+        //save high score to local storage
+        localStorage.setItem("high-score", JSON.stringify(highScoreArr[0]));
         var highScore = localStorage.getItem("high-score");
         highScore = JSON.parse(highScore);
-        if (!highScore) {
-            initials = "";
-            highScore = 0;
-        } else {
-            initials = highScore.initials
-            highScore = highScore.score
-        }
-       //compare current score to high score and save to local storage if true
-        if (points > highScore) {
-            //push object to array
-            highScoreArr.push(highScoreObj);
-            //save high score to local storage
-            localStorage.setItem("high-score", JSON.stringify(highScoreArr[0]));
-            var highScore = localStorage.getItem("high-score");
-            highScore = JSON.parse(highScore);
-            initials = highScore.initials
-            highScore = highScore.score
-        }
-        
-        //call the highscore function
-        highScorePage(initials, highScore);
-      });   
+        initials = highScore.initials
+        highScore = highScore.score
+    }
+    
+    //call the highScorePage function
+    highScorePage(initials, highScore);
+    });   
 }
 
 
