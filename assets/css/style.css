@@ -91,7 +91,7 @@ main {
     border: none;
     font-size: larger;
     box-shadow: -5px 5px 5px #222222;
-    min-width: 20vw;
+    width: 20vw;
 }
 
 #high-score-form {
@@ -123,7 +123,7 @@ main {
     #name {
         width: 45vw;
     }
-    
+
     .btns {
         font-size: small;
         min-width: 85vw;
