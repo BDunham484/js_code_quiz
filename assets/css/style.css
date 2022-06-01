@@ -23,6 +23,7 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
+     flex-wrap: wrap;
  }
 
  .timer-text {
@@ -46,8 +47,8 @@ main {
 
 #quiz {
     background-color: #c9ada7;
-    width: 65vw;
-    height: 50vh;
+    min-width: 65vw;
+    min-height: 50vh;
     margin: auto;
     display: flex;
     align-items: center;
@@ -69,7 +70,6 @@ main {
     font-size: 28px;
     font-weight: 100;
     letter-spacing: 1.3px;
-    
     color: #22223b;
 }
 
@@ -79,15 +79,9 @@ main {
     margin-bottom: 10px;
 }
 
-#name {
-    background-color: ;
-}
-
 #buttons {
     list-style: none;
 }
-
-
 
 .btns {
     background-color: #4a4e69;
@@ -97,7 +91,7 @@ main {
     border: none;
     font-size: larger;
     box-shadow: -5px 5px 5px #222222;
-    width: 20vw;
+    min-width: 20vw;
 }
 
 #high-score-form {
@@ -122,3 +116,43 @@ main {
     flex-basis: 51%;
 }
  /* MAIN STYLES END */
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+    #name {
+        width: 45vw;
+    }
+    
+    .btns {
+        font-size: small;
+        min-width: 85vw;
+    }
+
+    #quiz {
+        width: 95vw;
+        min-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .quiz-title {
+        font-size: 23px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .quiz-title {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    
+}
