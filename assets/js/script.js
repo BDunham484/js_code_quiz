@@ -33,73 +33,73 @@ var quizArr = [
     },
     {
         question: "1. Which function is used to serialize an object into a JSON string in Javascript?",
-        correctAnswer: "stringify()",
-        answerA: "parse()",
-        answerB: "serial()",
-        answerC: "convert()"
+        answerA: "stringify()",
+        answerB: "parse()",
+        answerC: "serial()",
+        answerD: "convert()"
     },
     {
         question: "2. What are variables used for in Javascript",
-        correctAnswer: "Causing high-school flashbacks",
-        answerA: "Varying randomly",
-        answerB: "Storing numers, dates, or other values",
-        answerC: "None of the above"
+        answerA: "Causing high-school flashbacks",
+        answerB: "Varying randomly",
+        answerC: "Storing numers, dates, or other values",
+        answerD: "None of the above"
     },
     {
         question: "3. What is the best practice for naming Javascript variables?",
-        correctAnswer: "thisOne",
-        answerA: "NoThisOne",
-        answerB: "Prettysurethisisit",
-        answerC: "how-about-this"
+        answerA: "thisOne",
+        answerB: "NoThisOne",
+        answerC: "Prettysurethisisit",
+        answerD: "how-about-this"
     },
     {
         question: "4. ________ tag is an extension to HTML that can enclose any number of JavaScript statements.",
-        correctAnswer: "<title>",
-        answerA: "<body>",
-        answerB: "<head>",
-        answerC: "<script>"
+        answerA: "<title>",
+        answerB: "<body>",
+        answerC: "<head>",
+        answerD: "<script>"
     },
     {
         question: "5. What is the correct syntax for a JavaScript Array?",
-        correctAnswer: "var arr = ['abcd']",
-        answerA: "var arr = ('a', 'b', 'c')",
-        answerB: "var arr = ['a', 'b', 'c']", 
-        answerC: "var arr = (a), (b), (c)"
+        answerA: "var arr = ['abcd']",
+        answerB: "var arr = ('a', 'b', 'c')",
+        answerC: "var arr = ['a', 'b', 'c']", 
+        answerD: "var arr = (a), (b), (c)"
     },
     {
         question: "6. Using an _______ statement is how you test for a specific condition",
-        correctAnswer: "Select",
-        answerA: "If",
-        answerB: "Object",
-        answerC: "For"
+        answerA: "Select",
+        answerB: "If",
+        answerC: "Object",
+        answerD: "For"
     },
     {
         question: "7. What is meant by the 'this' keyword in javascript",
-        correctAnswer: "It refers to the current object",
-        answerA: "It refers to the previuos object",
-        answerB: "It is a variable which contains the value",
-        answerC: "None of the above"
+        answerA: "It refers to the current object",
+        answerB: "It refers to the previuos object",
+        answerC: "It is a variable which contains the value",
+        answerD: "None of the above"
     },
     {
         question: "8. Which JavaScript method is used to access an HTML element by ID?",
-        correctAnswer: "querySelector",
-        answerA: "getElement(ID)",
-        answerB: "getElementById(id)",
-        answerC: "className"
+        answerA: "querySelector",
+        answerB: "getElement(ID)",
+        answerC: "getElementById(id)",
+        answerD: "className"
     },
     {
         question: "9. Which property is used to define the HTML content to an HTML element with a specific Id?",
-        correctAnswer: "innerText",
-        answerA: "innerContent",
-        answerB: "elementText",
-        answerC: "innerHTML"
+        answerA: "innerText",
+        answerB: "innerContent",
+        answerC: "elementText",
+        answerD: "innerHTML"
     },
     {
         question: "10. Which JavaScript method is used to write on the browser's console?",
-        correctAnswer: "console.write()",
-        answerA: "console.output()",
-        answerB: "console.log()",
-        answerC: "console.writeHTML()"
+        answerA: "console.write()",
+        answerB: "console.output()",
+        answerC: "console.log()",
+        answerD: "console.writeHTML()"
     }
 ]
 
@@ -158,7 +158,7 @@ var questions = function() {
      // var firstButton = document.createElement("button");
      firstButton.id = "firstClick"
      firstButton.className = "btns";
-     firstButton.textContent = quizArr[questionCounter].correctAnswer;
+     firstButton.textContent = quizArr[questionCounter].answerA;
      listItemA.appendChild(firstButton);
  
      //second list item
@@ -169,7 +169,7 @@ var questions = function() {
      //second button
      // var secondButton = document.createElement("button");
      secondButton.className = "btns";
-     secondButton.textContent = quizArr[questionCounter].answerA;
+     secondButton.textContent = quizArr[questionCounter].answerB;
      listItemB.appendChild(secondButton);
  
      //third list item
@@ -180,7 +180,7 @@ var questions = function() {
      //third button
      // var thirdButton = document.createElement("button");
      thirdButton.className = "btns";
-     thirdButton.textContent = quizArr[questionCounter].answerB;
+     thirdButton.textContent = quizArr[questionCounter].answerC;
      listItemC.appendChild(thirdButton);
  
      //fourth list item
@@ -191,27 +191,26 @@ var questions = function() {
      //fourth button
      // var fourthButton = document.createElement("button");
      fourthButton.className = "btns";
-     fourthButton.textContent = quizArr[questionCounter].answerC;
+     fourthButton.textContent = quizArr[questionCounter].answerD;
      listItemD.appendChild(fourthButton);
     //create event listeners for all of the answer buttons
     listItemA.onclick = function() {
         // debugger;
         if ( quizContentEl.textContent === quizArr[1].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[2].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl)        
         } else if ( quizContentEl.textContent === quizArr[3].question) {
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[4].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -228,11 +227,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[7].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[8].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -282,11 +280,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[6].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[7].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -324,11 +321,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[2].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
-            buttonsEl.appendChild(responseEl)        
-            console.log(points);
+            buttonsEl.appendChild(responseEl)       
         } else if ( quizContentEl.textContent === quizArr[3].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -340,11 +336,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[5].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[6].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -356,22 +351,20 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[8].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[9].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[10].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         }
     };
     listItemC.addEventListener("click", nextQuestion);
@@ -398,11 +391,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[4].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[5].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -424,11 +416,10 @@ var questions = function() {
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
         } else if ( quizContentEl.textContent === quizArr[9].question) {
-            points++
+            points += 5
             responseEl.textContent = "Correct!";
             responseEl.className = "answer";
             buttonsEl.appendChild(responseEl);
-            console.log(points);
         } else if ( quizContentEl.textContent === quizArr[10].question) {
             timeLeft = timeLeft - 10;
             responseEl.textContent = "Wrong Answer!";
@@ -545,12 +536,30 @@ var highScoreForm = function() {
         initials: inputInitials,
         score: points
         };
-        //push object to array
-        highScoreArr.push(highScoreObj);
-        //save high score to local storage
-        localStorage.setItem("high-score", JSON.stringify(highScoreArr[0]));
+        //retrieve current high score and save to variables
+        var highScore = localStorage.getItem("high-score");
+        highScore = JSON.parse(highScore);
+        if (!highScore) {
+            initials = "";
+            highScore = 0;
+        } else {
+            initials = highScore.initials
+            highScore = highScore.score
+        }
+       //compare current score to high score and save to local storage if true
+        if (points > highScore) {
+            //push object to array
+            highScoreArr.push(highScoreObj);
+            //save high score to local storage
+            localStorage.setItem("high-score", JSON.stringify(highScoreArr[0]));
+            var highScore = localStorage.getItem("high-score");
+            highScore = JSON.parse(highScore);
+            initials = highScore.initials
+            highScore = highScore.score
+        }
+        
         //call the highscore function
-        highScore(highScoreArr);
+        highScorePage(initials, highScore);
       });   
 }
 
@@ -559,18 +568,16 @@ var highScoreForm = function() {
 
 
 //create function to display high score page
-var highScore = function(highScoreArr) {
+var highScorePage = function(initials, highScore) {
     //clear and update previous content
     firstButton.remove();
     secondButton.remove();
     thirdButton.remove();
     fourthButton.remove();
-    quizContentEl.textContent = "High Score!!";
-    var name =  highScoreArr[0].initials.toUpperCase();
-    var score =  highScoreArr[0].score;
-    responseEl.textContent ="1. " + name + " - " + score;
+    quizContentEl.textContent = "Current High Score";
+    responseEl.textContent ="The Champ: " + initials + " - " + highScore;
     formEl.remove();
-    //create go back and clear scores buttons
+    //create try again and clear scores buttons
     buttonsEl.appendChild(listItemA);
     var goBackBtn = document.createElement("button");
     goBackBtn.textContent = "Try Again";

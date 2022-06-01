@@ -16,7 +16,9 @@
      background-color: #9a8c98;
      padding: 4vh;
      color: #22223b;
+     border-bottom: 2px solid #4a4e69;
  }
+ 
  header div {
      display: flex;
      align-items: center;
